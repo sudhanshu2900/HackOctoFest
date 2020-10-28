@@ -1,0 +1,60 @@
+// C++ implementation of the above approach 
+
+#include <bits/stdc++.h> 
+using namespace std; 
+
+// Function to print the pattern 
+void printPattern(int n) 
+{ 
+
+	int i, j; 
+
+	// Loop for rows 
+	for (i = 1; i <= n; i++) { 
+
+		// Loop for column 
+		for (j = 1; j < 2 * n; j++) { 
+
+			// For printing equal sides 
+			// of outer triangle 
+			if (j == (n - i + 1) 
+				|| j == (n + i - 1)) { 
+				cout << "* "; 
+			} 
+
+			// For printing equal sides 
+			// of inner triangle 
+			else if ((i >= 4 && i <= n - 4) 
+					&& (j == n - i + 4 
+						|| j == n + i - 4)) { 
+
+				cout << "* "; 
+			} 
+
+			// For printing base 
+			// of both triangle 
+			else if (i == n 
+					|| (i == n - 4 
+						&& j >= n - (n - 2 * 4) 
+						&& j <= n + n - 2 * 4)) { 
+
+				cout << "* "; 
+			} 
+
+			// For spacing between the triangle 
+			else { 
+				cout << " "
+					<< " "; 
+			} 
+		} 
+		cout << "\n"; 
+	} 
+} 
+
+// Driver Code 
+int main() 
+{ 
+	int N = 9; 
+
+	printPattern(N); 
+} 
